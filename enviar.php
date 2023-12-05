@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mensaje = $_POST["mensaje"];
 
     $destinatario = "guillermoandrada@gmail.com";
-    $asunto = "Nuevo mensaje de contacto";
+    $asunto = "Nuevo mensaje de contacto"; // <-- este asunto es predefinido, se puede cambiar desde el formulario, en el caso de ser necesario.
 
     $cuerpoMensaje = "Nombre: $nombre\n";
     $cuerpoMensaje .= "Email: $email\n";
@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Enviar el correo
     mail($destinatario, $asunto, $cuerpoMensaje);
-
     echo "¡Mensaje enviado con éxito!";
+    header("Locarion:sent-message.html");
 }
 ?>
